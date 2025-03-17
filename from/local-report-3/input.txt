@@ -1,0 +1,53 @@
+// 代入
+let a = 1
+print(a) // 1
+
+// 関数 (1行)
+let sum a b = a + b
+print(sum(10, 20))
+
+// 関数でスコープは区切られるので、aは↑の代入のaと同じ
+print(a)  // 1
+
+// 再帰関数
+let fib n = {
+    if n < 3 {
+        1
+    } else {
+        fib(n - 1) + fib(n - 2)
+    }
+}
+print(fib(15))  // 610
+
+// 引数0個の関数は定義時に () をつける
+let print_123456789 () = print(123456789)
+print_123456789()
+
+// if式
+let x = if 1 < 2 { 7 } else { 13 }
+print(x)  // 7
+
+// 条件演算子の短絡評価
+let not_call () = print(1029384756)
+let _ = 0 && not_call()
+let _ = 1 || not_call()
+let should_call () = print(0)
+let _ = 1 && should_call() // 0
+let _ = 0 || should_call() // 0
+
+// 小数の四則演算
+let x = 3
+let y = -1.2 * 2
+print(x / 2 + y * 3)  // -5.7
+
+// 関数を返す関数
+let fnfn () = {
+    let res () = {
+        print_123456789()
+    }
+    res
+}
+fnfn()()
+
+// 未定義変数の参照
+print(undef)  // error: `undef` is not defined
