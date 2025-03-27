@@ -1,0 +1,54 @@
+// Assignment
+let a = 1
+print(a) // 1
+
+// Function (one line)
+let sum a b = a + b
+print(sum(10, 20))  // 30
+
+// Functions creates new scopes, so 'a' is the same as the assignment above
+// i.e. it is not overwritten by the `sum` function.
+print(a)  // 1
+
+// Recursive function
+let fib n = {
+    if n < 3 {
+        1
+    } else {
+        fib(n - 1) + fib(n - 2)
+    }
+}
+print(fib(15))  // 610
+
+// Functions with 0 arguments need () in their definition
+let print_123456789 () = print(123456789)
+print_123456789()
+
+// if expression
+let x = if 1 < 2 { 7 } else { 13 }
+print(x)  // 7
+
+// Short-circuit evaluation of logical operators
+let not_call () = print(1029384756)
+let _ = 0 && not_call()
+let _ = 1 || not_call()
+let should_call () = print(0)
+let _ = 1 && should_call() // 0
+let _ = 0 || should_call() // 0
+
+// Arithmetic operations with decimals
+let x = 3
+let y = -1.2 * 2
+print(x / 2 + y * 3)  // -5.7
+
+// Function returning a function
+let fnfn () = {
+    let res () = {
+        print_123456789()
+    }
+    res
+}
+fnfn()()
+
+// Reference to undefined variable
+print(undef)  // error: `undef` is not defined
