@@ -697,9 +697,21 @@ void start(Node root) {
     printf(")\n");
 }
 
-extern int yyparse (void);
+#include "lex.yy.h"
+#include "y.tab.h"
 
-int main() {
+int main(int argc, char** argv) {
+    if (argc > 1) {
+        FILE* file = fopen(argv[1], "r");
+        if (!file) {
+            fprintf(stderr, "Error: Could not open file '%s'\n", argv[1]);
+            return 1;
+        }
+        yyset_in(file);
+    }
     yyparse();
+    if (argc > 1) {
+        fclose(yyget_in());
+    }
     return 0;
 }

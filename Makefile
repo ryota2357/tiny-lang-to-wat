@@ -22,6 +22,9 @@ $(BIN)/eval: $(CACHE)/main_eval.o $(CACHE)/$(FLEX_PREFIX).o $(CACHE)/$(BISON_PRE
 $(BIN)/compile: $(CACHE)/main_compile.o $(CACHE)/$(FLEX_PREFIX).o $(CACHE)/$(BISON_PREFIX).o | $(BIN)
 	@$(CC) -ll $(CFLAGS) -o $@ $^
 
+$(CACHE)/main_%.o: main_%.c $(BISON_PREFIX).h $(FLEX_PREFIX).h | $(CACHE)
+	@$(CC) $(CFLAGS) -c -o $@ $<
+
 $(CACHE)/%.o: %.c | $(CACHE)
 	@$(CC) $(CFLAGS) -c -o $@ $<
 
