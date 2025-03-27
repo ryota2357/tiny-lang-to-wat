@@ -21,6 +21,7 @@
             bison
             flex
             wabt
+            deno
           ];
         };
       }
