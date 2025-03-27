@@ -6,7 +6,7 @@ A toy programming language with arithmetic, first-class functions, recursion, an
 
 Before building, ensure you have both **clang** (>=19.1.7) and **Nix** (with flake, >=2.24.10) installed.
 
-Enter the development shell using either nix develop or devShell, then run:
+Enter devShell by `nix develop` or nix-direnv, then run:
 
 ```console
 $ make
