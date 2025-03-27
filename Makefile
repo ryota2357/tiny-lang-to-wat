@@ -32,7 +32,7 @@ examples: $(BIN)/compile
 	done
 
 $(BIN)/eval: $(CACHE)/main_eval.o $(CACHE)/$(FLEX_PREFIX).o $(CACHE)/$(BISON_PREFIX).o | $(BIN)
-	$(CC) -ll $(CFLAGS) -o $@ $^
+	@$(CC) -ll $(CFLAGS) -o $@ $^
 
 $(BIN)/compile: $(CACHE)/main_compile.o $(CACHE)/$(FLEX_PREFIX).o $(CACHE)/$(BISON_PREFIX).o | $(BIN)
 	@$(CC) -ll $(CFLAGS) -o $@ $^
