@@ -124,7 +124,6 @@ async function wat2wasm(watContent: Uint8Array): Promise<Uint8Array> {
     suffix: ".wat",
   });
   await Deno.writeFile(tempFilePath, watContent);
-  console.log(`Temp file created: ${tempFilePath}`);
 
   const cmd = new Deno.Command("wat2wasm", {
     args: ["--output=-", tempFilePath],
