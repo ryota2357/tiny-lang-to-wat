@@ -1,0 +1,22 @@
+// integer division (prerequisite: a >= 0 && b > 0)
+let div a b = {
+    if a < b {
+        0
+    } else {
+        1 + div(a - b, b)
+    }
+}
+
+let collatz n = {
+    print(n)
+    if n == 1 {
+        1
+    } else {
+        if (div(n, 2) * 2 == n) {
+            collatz(div(n, 2))
+        } else {
+            collatz(3 * n + 1)
+        }
+    }
+}
+collatz(7)
